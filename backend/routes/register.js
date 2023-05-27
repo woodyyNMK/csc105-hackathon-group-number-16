@@ -1,20 +1,18 @@
 const bcrypt = require('bcrypt');
-const mysql = require("mysql2");
-
-
+const mysql = require('mysql2');
 module.exports = async(req, res) => {
   const username = req.body.username;
   const email = req.body.email;
-  const password = req.body.password;
+  const password1 = req.body.password1;
 
   const salt1 = await bcrypt.genSalt(10);
-  const hashPassword = await bcrypt.hash(password, salt1);
+  const hashPassword = await bcrypt.hash(password1, salt1);
 
   var sql = mysql.format(
     `INSERT into Users (username, email, password) VALUES (?,?,?)`, [username, email, hashPassword]
   );
 
-  connection.query(sql, (err, result) => {
+  connection.query(sql, (err, rows) => {
     if (err) {
       return res.json({
         success: false,

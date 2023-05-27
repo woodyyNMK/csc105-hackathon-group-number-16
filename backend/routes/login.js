@@ -6,7 +6,7 @@ module.exports=(req,res)=>{
     const usernameOrEmail=req.body.usernameOrEmail;
     const password=req.body.password;
 
-    var sql = mysql.format("SELECT * FROM Users WHERE username = ?", [usernameOrEmail]);
+    var sql = mysql.format("SELECT * FROM Users WHERE username = ? or email = ?", [usernameOrEmail,usernameOrEmail]);
 
     connection.query(sql,(err,rows)=>{
         if(err){

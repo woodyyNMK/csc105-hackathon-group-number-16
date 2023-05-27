@@ -9,6 +9,7 @@ import {
     AccountCircle,
     ShoppingCart,
   } from "@mui/icons-material";
+  import LogIn from "./LogIn"
   import { useContext,useState } from "react";
   import React from "react"
   import GlobalContext from '../components/GlobalContext';
@@ -17,44 +18,46 @@ import {
   import Axios from "./AxiosFront";
   import { useNavigate } from "react-router-dom";
   export default function NavTop1() {
-    const [openLoginModal, setOpenLoginModal] = useState(false);
-    const handleOpen = () => setOpenLoginModal(true);
-    const [openCartModal, setOpenCartModal] = useState(false);
-    const [openPastOrderModal, setOpenPastOrderModal] = useState(false);
-    const {user,setUser,setStatus,items,setItems,pastItems,setPastItems} = useContext(GlobalContext);
     const navigate = useNavigate();
-    const handleCartOpen = () => {
-      setOpenCartModal(true);
-      const userToken = Cookies.get("user");
-      if (userToken !== undefined && userToken !== "undefined") {
-        // 2. call API to get items
-        Axios.get("/Cart_items", {
-          headers: { Authorization: `Bearer ${userToken}` },
-        }).then((res) => {
-          // 3. set items to state
-          setItems(res.data.data);
-          setStatus({
-            msg : "loaded the items in cart"
-          })
-        });
-      }
-    }
-    const handlePastOrderOpen = () => {
-      setOpenPastOrderModal(true);
-      const userToken = Cookies.get("user");
-      if (userToken !== undefined && userToken !== "undefined") {
-        // 2. call API to get items
-        Axios.get("/Past_items", {
-          headers: { Authorization: `Bearer ${userToken}` },
-        }).then((res) => {
-          // 3. set items to state
-          setPastItems(res.data.data);
-          setStatus({
-            msg : "loaded the purchased items in cart"
-          })
-        });
-      }
-    }
+    const [openLoginModal, setOpenLoginModal] = useState(false);
+    const handleLoginOpen = () => setOpenLoginModal(true);
+
+    // const [openCartModal, setOpenCartModal] = useState(false);
+    // const [openPastOrderModal, setOpenPastOrderModal] = useState(false);
+    const {user,setUser,setStatus,items,setItems,pastItems,setPastItems} = useContext(GlobalContext);
+    
+    // const handleCartOpen = () => {
+    //   setOpenCartModal(true);
+    //   const userToken = Cookies.get("user");
+    //   if (userToken !== undefined && userToken !== "undefined") {
+    //     // 2. call API to get items
+    //     Axios.get("/Cart_items", {
+    //       headers: { Authorization: `Bearer ${userToken}` },
+    //     }).then((res) => {
+    //       // 3. set items to state
+    //       setItems(res.data.data);
+    //       setStatus({
+    //         msg : "loaded the items in cart"
+    //       })
+    //     });
+    //   }
+    // }
+    // const handlePastOrderOpen = () => {
+    //   setOpenPastOrderModal(true);
+    //   const userToken = Cookies.get("user");
+    //   if (userToken !== undefined && userToken !== "undefined") {
+    //     // 2. call API to get items
+    //     Axios.get("/Past_items", {
+    //       headers: { Authorization: `Bearer ${userToken}` },
+    //     }).then((res) => {
+    //       // 3. set items to state
+    //       setPastItems(res.data.data);
+    //       setStatus({
+    //         msg : "loaded the purchased items in cart"
+    //       })
+    //     });
+    //   }
+    // }
     
     const buttonWrap = {
       backgroundColor: "transparent",
@@ -79,11 +82,6 @@ import {
       borderRadius: "0 30px 30px 0",
     };
   
-    const [mobileOpen, setMobileOpen] = useState(false);
-    const handleDrawerToggle = () => {
-      setMobileOpen((prevState) => !prevState);
-    };
-  
     return (
       <div>
         <AppBar sx={{backgroundColor:"transparent"}} position="static">
@@ -93,13 +91,15 @@ import {
             </Typography>
            
             <Box sx={buttonWrap}>
-              <Button sx={bL} style={{ maxWidth: "40px", minWidth: "40px" }} onClick={handleCartOpen}>
+              <Button sx={bL} style={{ maxWidth: "40px", minWidth: "40px" }}>
                 <ShoppingCart />
               </Button>
               {/* {JSON.stringify(user)} */}
-              <Button sx={bR} style={{ maxWidth: "40px", minWidth: "40px" }} onClick={handleOpen}><AccountCircle /></Button>
-              {/* <LogIn handleOpen={handleOpen} open={openLoginModal} setOpen={setOpenLoginModal} />
-              <Cart handleCartOpen={handleCartOpen} openCartModal={openCartModal} setOpenCartModal={setOpenCartModal}/> */}
+              <Button sx={bR} style={{ maxWidth: "40px", minWidth: "40px" }} onClick={handleLoginOpen}>
+                <AccountCircle />
+              </Button>
+              <LogIn handleLoginOpen={handleLoginOpen} open={openLoginModal} setOpen={setOpenLoginModal} />
+              {/* <Cart handleCartOpen={handleCartOpen} openCartModal={openCartModal} setOpenCartModal={setOpenCartModal}/> */}
             </Box>
           </Toolbar>
         </AppBar>
