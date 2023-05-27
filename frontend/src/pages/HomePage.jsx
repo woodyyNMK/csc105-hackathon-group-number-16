@@ -14,16 +14,20 @@ export default function HomePage() {
             <Navbar/>
             
         </Box>
-        <div>
+        <div className='Body'>
 
-            <Typography sx={{fontSize: "4rem" }}>
+            <Typography align="center" sx={{fontSize: "4rem",fontFamily:"Argent Cf", fontWeight:"bold", letterSpacing:"0.7rem", color:"#d89b65"}}>
                 Menu
             </Typography>
             <div className='c1'>
             <MenuCard1 />
             </div>
+            <div className='c2'>
             <MenuCard2 sx={{width:"50%"}}/>
+            </div>
+            <div className='c3'>
             <MenuCard3/>
+            </div>
         </div>
     </div>
   )
