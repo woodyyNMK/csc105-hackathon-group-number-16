@@ -25,6 +25,7 @@ function MenuCard1() {
               fontSize: "40px",
               fontWeight: "bold",
               color: "#d89b65",
+              letterSpacing: "6px"
             }}
           >
             Package

@@ -8,21 +8,26 @@ import MenuCard3 from "../components/MenuCard3";
 import { Padding } from "@mui/icons-material";
 export default function HomePage() {
   return (
-    <Box>
+    <Box style={{background: "#0C0C1E"}}>
         <Navbar />
         <Box component="img" sx={{width: "100%"}} src="./assets/background1.png" alt="adfdsf" style={{backgroundColor:"red"}}>
         </Box>
-      <Box className="Body">
+      <Box>
         <Typography 
             component="div" 
             variant="h2"
             align="center"
-            sx={{
-                fontSize: "4rem",
-                fontFamily: "Argent Cf",
-                fontWeight: "bold",
-                letterSpacing: "0.7rem",
-                color: "#d89b65",
+          sx={{
+            marginTop: "20px",
+            fontFamily: "Argent Cf",
+            fontWeight: "bold",
+            letterSpacing: "0.7rem",
+              color: "#d89b65",
+              fontSize: {
+                xs: "32px",
+                sm: "48px",
+                md: "64px"
+              }
             }}
         >
           Menu

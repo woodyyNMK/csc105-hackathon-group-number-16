@@ -16,7 +16,7 @@ function MenuCard3() {
           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h3" component="div" align="center" sx={{fontFamily:"Argent Cf",fontWeight:"bold",color:"#d89b65"}}>
+          <Typography gutterBottom variant="h3" component="div" align="center" sx={{ fontFamily: "Argent Cf", fontWeight: "bold", color: "#d89b65", letterSpacing: "0.3rem", fontSize: { xs: "24px"}}}>
             Package
           </Typography>
           <Typography variant="body2" align="center" sx={{fontFamily:"Argent Cf", fontWeight:"bold", letterSpacing:"0.3rem",color:"#bf835f"}}>

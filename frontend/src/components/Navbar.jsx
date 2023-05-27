@@ -61,20 +61,21 @@ import {
     
     const buttonWrap = {
       backgroundColor: "transparent",
-      border: "1px solid black",
+      border: "1px solid #d89b65",
       borderRadius: "30px",
     };
     const bL = {
-      color: "black",
+      color: "#d89b65",
       "&:hover": {
         backgroundColor: "transparent",
       },
       borderRight: "1px solid black",
       backgroundColor: "transparent",
       borderRadius: "30px 0 0 30px",
+      
     };
     const bR = {
-      color: "black",
+      color: "#d89b65",
       "&:hover": {
         backgroundColor: "transparent",
       },
@@ -84,9 +85,9 @@ import {
   
     return (
       <div>
-        <AppBar sx={{backgroundColor:"transparent"}} position="static">
-          <Toolbar sx={{ justifyContent: "space-between" }}>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontSize:"1rem",fontWeight:"300", fontFamily:"Adobe Garamound Pro",letterSpacing:6}}>
+        <AppBar sx={{backgroundColor:"transparent",}} position="static">
+          <Toolbar sx={{ justifyContent: "space-between", height: "80px" }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontFamily:"Adobe Garamound Pro",letterSpacing:6, fontSize: {xs: "20px", sm: "30px", md: "40px"}, color: "#d89b65", fontWeight: "bold"}}>
               Oceanic Rhapsody
             </Typography>
            
