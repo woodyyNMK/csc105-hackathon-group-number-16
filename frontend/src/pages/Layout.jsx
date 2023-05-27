@@ -7,25 +7,22 @@ import Error from "../components/Error";
 const Layout = () => {
   const [status, setStatus] = useState("");
   const [user, setUser] = useState();
-  const [items, setItems] = useState([]);
-  const [pastItems, setPastItems] = useState([]);
+  const [menus,setMenus] = useState([]);
   const globalContextValue = useMemo(() => {
     return {
       user,
       setUser,
       setStatus,
-      items,
-      setItems,
-      pastItems,
-      setPastItems
+      menus,
+      setMenus,
     };
-  }, [user,items,pastItems]); 
+  }, [user,menus]); 
   const generatekey = () => {
     return Math.random();
   };
   return(
     <GlobalContext.Provider value={globalContextValue}>
-      <Box> 
+      <Box sx={{backgroundColor:"#0C0C1E"}}> 
         <Outlet/>
         {status ? (
           <Error key={generatekey()} open={status.open} severity={status.severity} message={status.msg} />

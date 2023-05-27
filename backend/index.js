@@ -19,6 +19,7 @@ const port=3000;
 const app=express();
 app.use(express.json());
 app.use(bodyParser.json({type:"application/json"}));
+app.use('/static',express.static('images'))
 app.use(cors({
     origin: ['http://localhost:3000','http://localhost:3001'],
     credentials: true,
@@ -26,7 +27,8 @@ app.use(cors({
 app.use(cookieParser());
 app.post("/register", require('./routes/register'));
 app.post("/login", require("./routes/login"));
-
+app.get("/getMenu", require("./routes/getMenuOnHomePage"));
+app.get("/MenuDetail/:id", require("./routes/getMenuDetail"));
 
 
 app.listen(port,()=>{

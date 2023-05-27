@@ -247,7 +247,7 @@ const Login = ({
       <Modal open={open} onClose={handleClose}>
         <Box sx={modalStyle} style={{borderRadius:"30px"}}>
           <br/>
-          <IconButton onClick={handleClose} style={{marginLeft:"10px", }}>
+          <IconButton onClick={handleClose} style={{marginLeft:"10px",color: "#d89b65" }}>
             <CloseIcon />
           </IconButton>
           <br />
@@ -311,7 +311,7 @@ const Login = ({
         <Modal open={signUpOpen} onClose={handleSignupClose}>
           <Box sx={modalStyle} style={{borderRadius:"30px"}}>
             <br/>
-            <IconButton onClick={handleSignupClose} style={{marginLeft:"10px" }}>
+            <IconButton onClick={handleSignupClose} style={{marginLeft:"10px",color: "#d89b65" }}>
               <CloseIcon />
             </IconButton>
             <br />
