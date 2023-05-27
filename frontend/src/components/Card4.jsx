@@ -14,20 +14,20 @@ import { AxiosError } from "axios";
 import Axios from "./AxiosFront";
 
 export default function Card4({ image, price, name, itemId }) {
-  const { user, setUser, setStatus, items, setItems } =
+  const { user, setUser, setStatus, menus, setMenus } =
     React.useContext(GlobalContext);
   const itemDelete = async () => {
     // TODO: Implement delete item
     try {
       // 1. call API to delete item
       const userToken = Cookies.get("user");
-      const response = await Axios.delete(`/Cart_items/${itemId}`, {
+      const response = await Axios.delete(`/Cart_menus/${itemId}`, {
         headers: { Authorization: `Bearer ${userToken}` },
       });
       // 2. if successful, set status and remove note from state
       if (response.data.success) {
-        setStatus({ severity: "success", msg: "Delete Item successfully" });
-        setItems(items.filter((i) => i.id !== itemId));
+        setStatus({ severity: "success", msg: "Delete Menu successfully" });
+        setMenus(menus.filter((i) => i.id !== itemId));
       }
     } catch (error) {
       // 3. if delete note failed, check if error is from calling API or not
@@ -39,11 +39,11 @@ export default function Card4({ image, price, name, itemId }) {
     }
   };
   const chips = {
-    backgroundColor: "#BFACE2",
+    backgroundColor: "#0c0c1e",
     "&:hover": {
-      backgroundColor: "#BFACE2",
+      backgroundColor: "#0c0c1e",
     },
-    color: "black",
+    color: "#d89b65",
     border: "1px solid #BFACE2",
     borderRadius: "15px",
     textTransform: "none",
@@ -54,7 +54,7 @@ export default function Card4({ image, price, name, itemId }) {
     <Card
       sx={{ display: "flex", flexGrow: 1 }}
       style={{
-        backgroundColor: "#655DBB",
+        backgroundColor: "#f2f2f2",
         borderRadius: "10px",
         boxShadow: "-2px 4px 4px rgba(0, 0, 0, 0.1)",
         margin: "0 10px",
@@ -86,7 +86,7 @@ export default function Card4({ image, price, name, itemId }) {
         >
           <Typography
             variant="body1"
-            style={{ color: "white", textAlign: "justify", fontWeight: "bold" }}
+            style={{ color: "black", textAlign: "justify", fontWeight: "bold" }}
           >
             {name}
           </Typography>
@@ -94,7 +94,7 @@ export default function Card4({ image, price, name, itemId }) {
           <Typography
             variant="body2"
             style={{
-              color: "white",
+              color: "gray",
               textAlign: "justify",
               fontWeight: "lighter",
             }}
@@ -103,7 +103,9 @@ export default function Card4({ image, price, name, itemId }) {
           </Typography>
         </CardContent>
         <Box>
-          <Button sx={chips} style={{ marginLeft: "50%" }} onClick={itemDelete}>
+          <Button sx={chips} style={{ marginLeft: "50%" }}
+           onClick={itemDelete}
+           >
             <DeleteIcon />
           </Button>
         </Box>

@@ -391,7 +391,7 @@ const Login = ({
               </Box>
               <br />
               <br />
-              <Button type="submit" onClick={handleSubmitSignUp} sx={signButton}>
+              <Button onClick={handleSubmitSignUp} sx={signButton}>
                 Register
               </Button>
               <br />

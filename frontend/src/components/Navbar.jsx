@@ -7,6 +7,7 @@ import {
   } from "@mui/material";
   import {
     AccountCircle,
+    Logout,
     ShoppingCart,
   } from "@mui/icons-material";
   import LogIn from "./LogIn"
@@ -25,40 +26,24 @@ import {
 
     const [openCartModal, setOpenCartModal] = useState(false);
     // const [openPastOrderModal, setOpenPastOrderModal] = useState(false);
-    const {user,setUser,setStatus,items,setItems,pastItems,setPastItems} = useContext(GlobalContext);
+    const {user,setUser,setStatus,menus,setMenus} = useContext(GlobalContext);
     
     const handleCartOpen = () => {
       setOpenCartModal(true);
-      // const userToken = Cookies.get("user");
-      // if (userToken !== undefined && userToken !== "undefined") {
-      //   // 2. call API to get items
-      //   Axios.get("/Cart_items", {
-      //     headers: { Authorization: `Bearer ${userToken}` },
-      //   }).then((res) => {
-      //     // 3. set items to state
-      //     setItems(res.data.data);
-      //     setStatus({
-      //       msg : "loaded the items in cart"
-      //     })
-      //   });
-      // }
+      const userToken = Cookies.get("user");
+      if (userToken !== undefined && userToken !== "undefined") {
+        // 2. call API to get items
+        Axios.get("/Cart_menus", {
+          headers: { Authorization: `Bearer ${userToken}` },
+        }).then((res) => {
+          // 3. set items to state
+          setMenus(res.data.data);
+          setStatus({
+            msg : "loaded the menu in cart"
+          })
+        });
+      }
     }
-    // const handlePastOrderOpen = () => {
-    //   setOpenPastOrderModal(true);
-    //   const userToken = Cookies.get("user");
-    //   if (userToken !== undefined && userToken !== "undefined") {
-    //     // 2. call API to get items
-    //     Axios.get("/Past_items", {
-    //       headers: { Authorization: `Bearer ${userToken}` },
-    //     }).then((res) => {
-    //       // 3. set items to state
-    //       setPastItems(res.data.data);
-    //       setStatus({
-    //         msg : "loaded the purchased items in cart"
-    //       })
-    //     });
-    //   }
-    // }
     
     const buttonWrap = {
       backgroundColor: "transparent",
@@ -97,9 +82,11 @@ import {
                 <ShoppingCart />
               </Button>
               {/* {JSON.stringify(user)} */}
-              <Button sx={bR} style={{ maxWidth: "40px", minWidth: "40px" }} onClick={handleLoginOpen}>
+              {user ?(<Button sx={bR} style={{ maxWidth: "40px", minWidth: "40px" }}>
+                <Logout/>
+              </Button>):(<Button sx={bR} style={{ maxWidth: "40px", minWidth: "40px" }} onClick={handleLoginOpen}>
                 <AccountCircle />
-              </Button>
+              </Button>)}
               <LogIn handleLoginOpen={handleLoginOpen} open={openLoginModal} setOpen={setOpenLoginModal} />
               <Cart handleCartOpen={handleCartOpen} openCartModal={openCartModal} setOpenCartModal={setOpenCartModal}/>
             </Box>

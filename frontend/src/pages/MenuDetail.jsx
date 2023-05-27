@@ -29,6 +29,27 @@ function MenuDetail() {
   const image1 = details.image1;
   const image2 = details.image2;
   const image3 = details.image3;
+  const menu_price= details.menu_price;
+
+  
+  const itemAdd = () => {
+    // 1. call API to delete item
+  const userToken = Cookies.get('user');
+  if (userToken !== undefined && userToken !== "undefined") {
+  Axios.post(`/MenuDetail/${id}`,{menu_id,menu_name,menu_price,image2}
+  ,{
+    headers: { 
+      "Authorization": `Bearer ${userToken}` 
+    }
+  }
+  ).then((res) =>{
+    setStatus({
+      msg: 'Add Menu successfully',
+      severity: 'success'
+    });
+  });
+}
+};
 
   const signButton = {
     backgroundColor: "#d89b65",
@@ -63,7 +84,7 @@ function MenuDetail() {
           color: "#d89b65",
         }}
       >
-        Course {menu_id}
+        {menu_name}
       </Typography>
       
       <Box style={{ paddingLeft: "5vw", paddingRight: "5vw" }} sx={{display:"flex", flexDirection:"column", alignItems:"center"}}>
@@ -417,7 +438,7 @@ function MenuDetail() {
           </Grid>
         </Grid>
         <br/>
-        <Button sx={signButton}>Add To Cart</Button>
+        <Button onClick={itemAdd} sx={signButton}>Add To Cart</Button>
       </Box>
     </>
   );

@@ -29,8 +29,10 @@ app.post("/register", require('./routes/register'));
 app.post("/login", require("./routes/login"));
 app.get("/getMenu", require("./routes/getMenuOnHomePage"));
 app.get("/MenuDetail/:id", require("./routes/getMenuDetail"));
-
-
+app.get("/Cart_menus", require("./routes/getMenusInCart"));
+app.post("/MenuDetail/:id", require("./routes/addMenuToCart"));
+app.delete('/Cart_menus/:id', require("./routes/deleteMenuInCart"));
+app.post("/Cart_menus", require("./routes/purchaseMenu"));
 app.listen(port,()=>{
     console.log(`App listening on port ${port}`);
 });                                              
