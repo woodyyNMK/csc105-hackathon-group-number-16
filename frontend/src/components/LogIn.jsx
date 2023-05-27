@@ -28,28 +28,30 @@ const Login = ({
   };
 
   const signButton = {
-    backgroundColor: "#655DBB",
+    backgroundColor: "#f2f2f2",
     "&:hover": {
       //you want this to be the same as the backgroundColor above
-      backgroundColor: "#655DBB",
+      backgroundColor: "#f2f2f2",
     },
-    color:"white",
+    color:"#0C0C1E",
     width: { md: "60%", xs: "80%" },
     textTransform: "none",
     padding: "10px 0",
-    fontFamily: "arial",
-    fontSize: { xs: "14px", md: "16px" },
+    fontFamily: "Adobe Garamond Pro",
+    fontSize: { xs: "15px", md: "20px" },
     alignItems: "center",
     marginLeft: { md: "20%", xs: "10%" },
+    fontWeight: "bold"
   };
   const signField = {
     width: { md: "60%", xs: "80%" },
     fontFamily: "arial",
     marginLeft: { md: "20%", xs: "10%" },
+    color:"#d89b65",
   };
   const modalStyle = {
     position: "absolute",
-    bgcolor: "#E5D1FA",
+    bgcolor: "#0c0c1e",
   //   height: { xs: "100%", md: "90%" },
     width: { xs: "100%", md: "60%" },
     top: "50%",
@@ -62,6 +64,7 @@ const Login = ({
   const headerTextStyle = {
     fontFamily: "Roboto",
     fontSize: { xs: "20px", md: "30px" },
+    color: "#d89b65",
   };
   const [usernameOrEmail, setUsernameOrEmail] = useState("");
   const [usernameOrEmailError, setUsernameOrEmailError] = useState("");
@@ -254,7 +257,7 @@ const Login = ({
           <form>
             <TextField
               sx={signField}
-              style={{ backgroundColor: "#BFACE2"}}
+              style={{ backgroundColor: "#f2f2f2"}}
               label="Email"
               value={usernameOrEmail}
               error={usernameOrEmailError !== ""}
@@ -267,7 +270,7 @@ const Login = ({
               sx={signField}
               label="Password"
               type="password"
-              style={{ backgroundColor: "#BFACE2" }}
+              style={{ backgroundColor: "#f2f2f2" }}
               value={password}
               error={passwordError !== ""}
               helperText={passwordError}
@@ -285,7 +288,7 @@ const Login = ({
             <br />
             <br />
             <Box sx={signField}>
-              Don't you have an account?
+              Don't have an account?
               <p
                 style={{ color: "#306AFF" }}
                 onClick={() => {
@@ -318,7 +321,7 @@ const Login = ({
             <form>
               <TextField
                 sx={signField}
-                style={{ backgroundColor: "#BFACE2" }}
+                style={{ backgroundColor: "#f2f2f2" }}
                 value={username}
                 onChange={handleUsernameChange}
                 error={usernameError !== ''}
@@ -330,7 +333,7 @@ const Login = ({
               />
               <TextField
                 sx={signField}
-                style={{ backgroundColor: "#BFACE2" }}
+                style={{ backgroundColor: "#f2f2f2" }}
                 value={email}
                 onChange={handleSignUpEmailChange}
                 error={emailError !== ''}
@@ -344,7 +347,7 @@ const Login = ({
               <TextField
                 sx={signField}
                 type="password"
-                style={{ backgroundColor: "#BFACE2" }}
+                style={{ backgroundColor: "#f2f2f2" }}
                 value={password1}
                 onChange={handleSignUpPasswordChange}
                 error={passwordError1 !== ''}
@@ -357,7 +360,7 @@ const Login = ({
               />
               <TextField
                 sx={signField}
-                style={{ backgroundColor: "#BFACE2" }}
+                style={{ backgroundColor: "#f2f2f2" }}
                 type="password"
                 value={rePassword}
                 onChange={handleConfirmPasswordChange}
@@ -375,10 +378,10 @@ const Login = ({
                   <Checkbox
                     checked={isChecked}
                     onChange={handleCheck}
-                    color="primary"
+                    sx={{color:"#f2f2f2"}}
                   />
                 }
-                label="By creating an account you agree to the terms of use and our privacy and policy"
+                label="By creating an account you agree to the terms of use with addition to our privacy and policy"
                 sx={signField}
               />
               <Box sx={signField}>
@@ -393,7 +396,7 @@ const Login = ({
               </Button>
               <br />
               <Box sx={signField}>
-                Have already an account?
+                Already have an account?
                 <p
                   style={{ color: "#306AFF" }}
                   onClick={() => {
