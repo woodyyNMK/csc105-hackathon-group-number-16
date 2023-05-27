@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { AxiosError } from "axios";
 import Axios from "../components/AxiosFront";
 import GlobalContext from "../components/GlobalContext";
 import Cookies from "js-cookie";
 function MenuDetail() {
   const { user, setUser, setStatus, menus, setMenus } =
-  React.useContext(GlobalContext);
+    React.useContext(GlobalContext);
   const { id } = useParams();
   const [details, setDetails] = useState({});
   React.useEffect(() => {
@@ -29,6 +29,21 @@ function MenuDetail() {
   const image1 = details.image1;
   const image2 = details.image2;
   const image3 = details.image3;
+
+  const signButton = {
+    backgroundColor: "#d89b65",
+    "&:hover": {
+      //you want this to be the same as the backgroundColor above
+      backgroundColor: "#d89b65",
+    },
+    color: "black",
+    width: "100%",
+    textTransform: "none",
+    padding: "10px 0",
+    fontFamily: "arial",
+    fontSize: { xs: "14px", md: "16px" },
+    alignItems: "center",
+  };
   return (
     <>
       <Navbar />
@@ -50,14 +65,147 @@ function MenuDetail() {
       >
         Course {menu_id}
       </Typography>
-      <div style={{ paddingLeft: "25px", paddingRight: "25px" }}>
+      
+      <Box style={{ paddingLeft: "5vw", paddingRight: "5vw" }} sx={{display:"flex", flexDirection:"column", alignItems:"center"}}>
         <Grid container sx={{ p: 3, border: "1px solid #d89b65" }}>
           {/* APPETIZER  */}
-          <Grid item sx={{ display: "flex", alignItems: "center" }}>
+          {/* Large Screen view */}
+          <Grid
+            item
+            sx={{
+              display: { xs: "none", sm: "none", md: "flex" },
+              alignItems: "center",
+            }}
+          >
             <Box
               className="description"
               sx={{
                 width: "65%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Typography
+                component="div"
+                variant="h5"
+                align="center"
+                sx={{
+                  fontFamily: "Luxurious Script",
+                  fontSize: {
+                    xs: "25px",
+                    sm: "30px",
+                    md: "40px",
+                  },
+                  fontWeight: "bold",
+                  color: "#d89b65",
+                }}
+              >
+                {desc1}
+              </Typography>
+              <Typography
+                sx={{
+                  fontFamily: "Argent Cf",
+                  textAlign: "center",
+                  color: "#bf835f",
+                  fontSize: {
+                    xs: "10px",
+                    sm: "22px",
+                    md: "30px",
+                  },
+                  padding: "10px",
+                }}
+              >
+                {desc1a}
+              </Typography>
+            </Box>
+            <Box
+              component="img"
+              sx={{ width: "35%" }}
+              image="./assets/temp.png"
+              alt="Live from space album cover"
+              src={image1}
+            ></Box>
+          </Grid>
+          {/* Mobile view */}
+          <Grid
+            item
+            sx={{
+              display: { xs: "block", sm: "block", md: "none" },
+              alignItems: "center",
+            }}
+          >
+            <Box
+              component="img"
+              sx={{ width: "100%" }}
+              image="./assets/temp.png"
+              alt="Live from space album cover"
+              src={image1}
+            ></Box>
+            <Box
+              className="description"
+              sx={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Typography
+                component="div"
+                variant="h5"
+                align="center"
+                sx={{
+                  fontFamily: "Luxurious Script",
+                  fontSize: {
+                    xs: "25px",
+                    sm: "30px",
+                    md: "40px",
+                  },
+                  fontWeight: "bold",
+                  color: "#d89b65",
+                }}
+              >
+                {desc1}
+              </Typography>
+              <Typography
+                sx={{
+                  fontFamily: "Argent Cf",
+                  textAlign: "center",
+                  color: "#bf835f",
+                  fontSize: {
+                    xs: "10px",
+                    sm: "22px",
+                    md: "30px",
+                  },
+                  padding: "10px",
+                }}
+              >
+                {desc1a}
+              </Typography>
+            </Box>
+          </Grid>
+
+          <br />
+          <br />
+
+          {/* MAIN */}
+          {/* Mobile View */}
+          <Grid item sx={{
+            display: {
+            xs: "block", sm: "block", md: "none",
+          }, alignItems: "center" }}>
+            <Box
+              component="img"
+              sx={{ width: "100%" }}
+              image={image2}
+              alt="Live from space album cover"
+              src={image2}
+            ></Box>
+            <Box
+              className="description"
+              sx={{
+                width: "100%",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -78,7 +226,7 @@ function MenuDetail() {
                   color: "#d89b65",
                 }}
               >
-                {desc1}
+                {desc2}
               </Typography>
               <Typography
                 sx={{
@@ -93,23 +241,12 @@ function MenuDetail() {
                   padding: "10px",
                 }}
               >
-                {desc1a}
+                {desc2a}
               </Typography>
             </Box>
-            <Box
-              component="img"
-              sx={{ width: "35%" }}
-              image="./assets/temp.png"
-              alt="Live from space album cover"
-              src={image1}
-            ></Box>
           </Grid>
-          <br />
-          <br />
-
-          {/* MAIN */}
-
-          <Grid item sx={{ display: "flex", alignItems: "center" }}>
+          <Grid item sx={{
+            display: {xs: "none", sm: "none", md:"flex"}, alignItems: "center" }}>
             <Box
               component="img"
               sx={{ width: "35%" }}
@@ -164,7 +301,13 @@ function MenuDetail() {
           <br />
           {/* DESERT  */}
 
-          <Grid item sx={{ display: "flex", alignItems: "center" }}>
+          <Grid
+            item
+            sx={{
+              display: { xs: "none", sm: "none", md: "flex" },
+              alignItems: "center",
+            }}
+          >
             <Box
               className="description"
               sx={{
@@ -179,7 +322,7 @@ function MenuDetail() {
                 variant="h5"
                 align="center"
                 sx={{
-                  fontFamily: "Argent Cf",
+                  fontFamily: "Luxurious Script",
                   fontSize: {
                     xs: "25px",
                     sm: "30px",
@@ -197,7 +340,7 @@ function MenuDetail() {
                   textAlign: "center",
                   color: "#bf835f",
                   fontSize: {
-                    xs: "15px",
+                    xs: "10px",
                     sm: "22px",
                     md: "30px",
                   },
@@ -215,8 +358,67 @@ function MenuDetail() {
               src={image3}
             ></Box>
           </Grid>
+          <Grid
+            item
+            sx={{
+              display: { xs: "block", sm: "block", md: "none" },
+              alignItems: "center",
+            }}
+          >
+            <Box
+              component="img"
+              sx={{ width: "100%" }}
+              image="./assets/temp.png"
+              alt="Live from space album cover"
+              src={image3}
+            ></Box>
+            <Box
+              className="description"
+              sx={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Typography
+                component="div"
+                variant="h5"
+                align="center"
+                sx={{
+                  fontFamily: "Luxurious Script",
+                  fontSize: {
+                    xs: "25px",
+                    sm: "30px",
+                    md: "40px",
+                  },
+                  fontWeight: "bold",
+                  color: "#d89b65",
+                }}
+              >
+                {desc1}
+              </Typography>
+              <Typography
+                sx={{
+                  fontFamily: "Argent Cf",
+                  textAlign: "center",
+                  color: "#bf835f",
+                  fontSize: {
+                    xs: "10px",
+                    sm: "22px",
+                    md: "30px",
+                  },
+                  padding: "10px",
+                }}
+              >
+                {desc3a}
+              </Typography>
+            </Box>
+          </Grid>
         </Grid>
-      </div>
+        <br/>
+        <Button sx={signButton}>Add To Cart</Button>
+      </Box>
     </>
   );
 }

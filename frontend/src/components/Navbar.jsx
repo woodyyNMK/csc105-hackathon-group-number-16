@@ -87,7 +87,7 @@ import {
     return (
       <div>
         <AppBar sx={{backgroundColor:"#0C0C1E"}}>
-          <Toolbar sx={{ justifyContent: "space-between", height: "80px" }}>
+          <Toolbar sx={{ justifyContent: "space-between", height: "20%" }}>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontFamily:"Adobe Garamound Pro",letterSpacing:4, fontSize: {xs: "20px", sm: "30px", md: "40px"}, color: "#d89b65", fontWeight: "bold"}}>
               Oceanic Rhapsody
             </Typography>
