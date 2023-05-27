@@ -1,32 +1,7 @@
 .Header{
     background-color: #f2f2f2;
-    height: 30em;
 }
 
 .Body{
     background-color: #0C0C1E;
-}
-
-.c1{
-    position: relative;
-    width: 75%;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.c2{
-    position: relative;
-    width: 75%;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.c3{
-    position: relative;
-    width: 75%;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
 }

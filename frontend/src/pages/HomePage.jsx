@@ -8,10 +8,10 @@ import MenuCard3 from "../components/MenuCard3";
 import { Padding } from "@mui/icons-material";
 export default function HomePage() {
   return (
-    <Box className="signup_container">
-      <Box className="Header">
+    <Box>
         <Navbar />
-      </Box>
+        <Box component="img" sx={{width: "100%"}} src="./assets/background1.png" alt="adfdsf" style={{backgroundColor:"red"}}>
+        </Box>
       <Box className="Body">
         <Typography 
             component="div" 
