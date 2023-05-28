@@ -13,7 +13,7 @@ module.exports = (req, res) => {
                 res.send({
                     success: true,
                     data: {
-                        message: "Mwnu deleted"
+                        message: "Menu deleted"
                     },
                 });
             }
