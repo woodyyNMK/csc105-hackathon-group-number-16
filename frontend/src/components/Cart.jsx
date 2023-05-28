@@ -117,7 +117,7 @@ const Cart = ({
     const checkout = 1;
     const userToken = Cookies.get("user");
     if (userToken !== undefined && userToken !== "undefined") {
-      Axios.post(
+      Axios.patch(
         "/Cart_menus",
         { checkout,address },
         {

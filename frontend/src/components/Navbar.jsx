@@ -19,6 +19,8 @@ import {
   import { AxiosError } from "axios";
   import Axios from "./AxiosFront";
   import { useNavigate } from "react-router-dom";
+  import "../fonts/Monsieur_La_Doulaise/MonsieurLaDoulaise-Regular.ttf";
+
   export default function NavTop1() {
     const navigate = useNavigate();
     const [openLoginModal, setOpenLoginModal] = useState(false);
@@ -56,7 +58,7 @@ import {
         backgroundColor: "transparent",
       },
       borderRight: "1px solid #d89b65",
-      backgroundColor: "transparent",
+      backgroundColor: "#0C0C1E",
       borderRadius: "30px 0 0 30px",
       
     };
@@ -65,24 +67,29 @@ import {
       "&:hover": {
         backgroundColor: "transparent",
       },
-      backgroundColor: "transparent",
+      backgroundColor: "#0C0C1E",
       borderRadius: "0 30px 30px 0",
     };
-  
+    
+    const logOut = () => {
+      setUser();
+      Cookies.remove("user");
+    };
+
     return (
       <div>
-        <AppBar sx={{backgroundColor:"#0C0C1E"}}>
+        <AppBar sx={{backgroundColor:"#f2f2f2", border:"3px solid #bf835f"}}>
           <Toolbar sx={{ justifyContent: "space-between", height: "20%" }}>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontFamily:"Adobe Garamound Pro",letterSpacing:4, fontSize: {xs: "20px", sm: "30px", md: "40px"}, color: "#d89b65", fontWeight: "bold"}}>
+          <Button variant="text" href="/" sx={{ textTransform: "none", textDecoration: "none", fontFamily:"MonsieurLaDoulaise", fontSize: {xs: "23px", sm: "35px", md: "40px"}, color: "#0C0C1E", fontWeight: "bold"}}>
               Oceanic Rhapsody
-            </Typography>
+            </Button>
            
             <Box sx={buttonWrap}>
               <Button sx={bL} style={{ maxWidth: "40px", minWidth: "40px" }} onClick={handleCartOpen}>
                 <ShoppingCart />
               </Button>
               {/* {JSON.stringify(user)} */}
-              {user ?(<Button sx={bR} style={{ maxWidth: "40px", minWidth: "40px" }}>
+              {user ?(<Button sx={bR} style={{ maxWidth: "40px", minWidth: "40px" }} onClick={logOut}>
                 <Logout/>
               </Button>):(<Button sx={bR} style={{ maxWidth: "40px", minWidth: "40px" }} onClick={handleLoginOpen}>
                 <AccountCircle />

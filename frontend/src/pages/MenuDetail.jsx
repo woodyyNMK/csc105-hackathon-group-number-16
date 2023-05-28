@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Toolbar, Typography } from "@mui/material";
 import { AxiosError } from "axios";
 import Axios from "../components/AxiosFront";
 import GlobalContext from "../components/GlobalContext";
@@ -66,25 +66,42 @@ function MenuDetail() {
     alignItems: "center",
   };
   return (
-    <>
+    <Box sx={{paddingBottom: "15px"}}>
       <Navbar />
+      {/* <br />
       <br />
-      <br />
-      <br />
+      <br /> */}
+      <Toolbar sx={{marginTop: "30px",}}/>
       <Typography
         align="center"
         sx={{
           fontFamily: "Argent Cf",
           fontSize: {
-            xs: "40px",
-            sm: "50px",
-            md: "70px",
+            xs: "20px",
+            sm: "30px",
+            md: "35px",
           },
           fontWeight: "bold",
           color: "#d89b65",
         }}
       >
         {menu_name}
+      </Typography>
+      <Typography
+        align="center"
+        sx={{
+          fontFamily: "Argent Cf",
+          fontSize: {
+            xs: "10px",
+            sm: "15px",
+            md: "18px",
+          },
+          fontWeight: "bold",
+          color: "#d89b65",
+          marginBottom: "20px"
+        }}
+      >
+        {menu_price} $
       </Typography>
       
       <Box style={{ paddingLeft: "5vw", paddingRight: "5vw" }} sx={{display:"flex", flexDirection:"column", alignItems:"center"}}>
@@ -114,9 +131,9 @@ function MenuDetail() {
                 sx={{
                   fontFamily: "Luxurious Script",
                   fontSize: {
-                    xs: "25px",
-                    sm: "30px",
-                    md: "40px",
+                    xs: "18px",
+                    sm: "25px",
+                    md: "30px",
                   },
                   fontWeight: "bold",
                   color: "#d89b65",
@@ -179,9 +196,9 @@ function MenuDetail() {
                 sx={{
                   fontFamily: "Luxurious Script",
                   fontSize: {
-                    xs: "25px",
-                    sm: "30px",
-                    md: "40px",
+                    xs: "18px",
+                    sm: "25px",
+                    md: "30px",
                   },
                   fontWeight: "bold",
                   color: "#d89b65",
@@ -239,9 +256,9 @@ function MenuDetail() {
                 sx={{
                   fontFamily: "Argent Cf",
                   fontSize: {
-                    xs: "25px",
-                    sm: "30px",
-                    md: "40px",
+                    xs: "18px",
+                    sm: "25px",
+                    md: "30px",
                   },
                   fontWeight: "bold",
                   color: "#d89b65",
@@ -255,7 +272,7 @@ function MenuDetail() {
                   textAlign: "center",
                   color: "#bf835f",
                   fontSize: {
-                    xs: "15px",
+                    xs: "10px",
                     sm: "22px",
                     md: "30px",
                   },
@@ -409,15 +426,15 @@ function MenuDetail() {
                 sx={{
                   fontFamily: "Luxurious Script",
                   fontSize: {
-                    xs: "25px",
-                    sm: "30px",
-                    md: "40px",
+                    xs: "18px",
+                    sm: "25px",
+                    md: "30px",
                   },
                   fontWeight: "bold",
                   color: "#d89b65",
                 }}
               >
-                {desc1}
+                {desc3}
               </Typography>
               <Typography
                 sx={{
@@ -440,7 +457,7 @@ function MenuDetail() {
         <br/>
         <Button onClick={itemAdd} sx={signButton}>Add To Cart</Button>
       </Box>
-    </>
+    </Box>
   );
 }
 

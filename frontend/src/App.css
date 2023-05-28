@@ -1,0 +1,5 @@
+@font-face {
+    font-family: "MonsieurLaDoulaise";
+    src: local("MonsieurLaDoulaise"),
+    url('./fonts/Monsieur_La_Doulaise/MonsieurLaDoulaise-Regular.ttf') format("truetype");
+}

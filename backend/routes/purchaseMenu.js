@@ -12,6 +12,7 @@ module.exports=(req,res)=>{
 
     connection.query(sql,[checkout,address,decoded.userId],(err,rows)=>{
         if(err){
+            console.log(err);
             return res.json({
                 success: false,
                 data:null,
